@@ -9,7 +9,11 @@ body {
   padding: 0;
   height: 100%;
 }
-
+@font-face {
+  font-family: "Lato";   /*Can be any text*/
+  src: local("Lato-Regular"),
+    url("./fonts/Lato-Regular.ttf") format("truetype");
+}
 #root {
   height: 100%;
 }
@@ -395,7 +399,7 @@ body {
 .channel-list__list__wrapper {
   display: flex;
   flex-direction: column;
-  background: #7f7e7e;
+  background: #e0dfdf;
   width: 240px;
 }
 
@@ -436,12 +440,13 @@ body {
 }
 
 .channel-list__header__text {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Lato", sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
+  letter-spacing: 1px;
   line-height: 28px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .channel-search__container {
@@ -466,7 +471,7 @@ body {
 }
 
 .channel-search__input__wrapper:focus-within {
-  border: 1px solid #fff;
+  border: 1px solid rgb(45, 45, 45);
 }
 
 .channel-search__input__icon {
@@ -478,14 +483,14 @@ body {
 .channel-search__input__text {
   background: none;
   border: none;
-  color: #fff;
+  color: rgb(58, 58, 58);
   font-family: Helvetica Neue, sans-serif;
   font-size: 16px;
   outline: none;
 }
 
 ::placeholder {
-  color: rgba(255, 255, 255, 0.66);
+  color: rgba(40, 39, 39, 0.66);
   white-space: nowrap;
   width: 150px;
 }
@@ -940,7 +945,7 @@ body {
 }
 
 .team-channel-list__message {
-  color: #ffffff;
+  color: #3b3a3a;
   padding: 0 16px;
 }
 
