@@ -1,6 +1,7 @@
-import React from 'react'
-
-export const TeamChannelList = ({ children, error = true, loading, type }) => {
+import React from 'react';
+import { AddChannel } from './../assets/AddChannel';
+import { AiOutlineUserAdd } from 'react-icons/ai'
+export const TeamChannelList = ({ setToggleContainer, isCreating, setIsCreating, setCreateType, setIsEditing, children, error = true, loading, type }) => {
 
     if (error) {
         return type === 'team' ? (
@@ -16,23 +17,42 @@ export const TeamChannelList = ({ children, error = true, loading, type }) => {
         return (
             <div className="team-channel-list">
                 <p className="team-channel-list__message loading">
-                    {type === 'team' ? 'Channels' : 'Messages'}
+                    {type === 'team' ? 'Channels' : 'Messages'} loading..
                 </p>
             </div>
         )
     }
 
-
-
     return (
-        <div className='team-channel-list'>
+        <div className="team-channel-list">
             <div className="team-channel-list__header">
-                <p className='team-channel-list__header__title'>
+                <p className="team-channel-list__header__title">
                     {type === 'team' ? 'Channels' : 'Direct Messages'}
                 </p>
-                {/* button to add channel */}
+                {/* <AddChannel
+                    isCreating={isCreating}
+                    setIsCreating={setIsCreating}
+                    setCreateType={setCreateType}
+                    setIsEditing={setIsEditing}
+                    type={type === 'team' ? 'team' : 'messaging'}
+                /> */}
+                <AiOutlineUserAdd
+                    size={20}
+                    style={{ marginTop: '10px' }}
+                    isCreating={isCreating}
+                    setIsCreating={setIsCreating}
+                    setCreateType={setCreateType}
+                    setIsEditing={setIsEditing}
+                    type={type === 'team' ? 'team' : 'messaging'}
+                    onClick={() => {
+                        setCreateType(type);
+                        setIsCreating((prevState) => !prevState);
+                        setIsEditing(false);
+                        if (setToggleContainer) setToggleContainer((prevState) => !prevState)
+                    }}
+                />
             </div>
-            {children}
+            <p style={{ marginLeft: '10px', fontFamily: 'Lato' }}>{children.key ? children : 'You have no channels currently'}</p>
         </div>
     )
 }

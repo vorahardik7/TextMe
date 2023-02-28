@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #005fff;
+    --primary-color: #00dd00;
     --primary-color-alpha: #005fff1a;
   }
   
@@ -386,12 +386,7 @@ body {
   width: 44px;
   height: 44px;
   margin: 14px;
-  background: linear-gradient(
-      150.64deg,
-      rgba(0, 0, 0, 0.1) 12.73%,
-      rgba(0, 0, 0, 0) 89.32%
-    ),
-    #ffffff;
+  background:#000;
   border-radius: 9999px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.33);
 }
@@ -399,8 +394,10 @@ body {
 .channel-list__list__wrapper {
   display: flex;
   flex-direction: column;
-  background: #e0dfdf;
-  width: 240px;
+  background: #f5f4f4;
+  width: 250px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .icon1__inner {
@@ -415,12 +412,7 @@ body {
   width: 44px;
   height: 44px;
   margin: 14px;
-  background: linear-gradient(
-      150.64deg,
-      rgba(0, 0, 0, 0.1) 12.73%,
-      rgba(0, 0, 0, 0) 89.32%
-    ),
-    #ffffff;
+  background: #000;
   border-radius: 9999px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.33);
   cursor: pointer;
@@ -467,7 +459,7 @@ body {
   border-radius: 8px;
   margin-bottom: 8px;
   border: 1px solid transparent;
-  width: 95%;
+  width: 100%;
 }
 
 .channel-search__input__wrapper:focus-within {
@@ -950,6 +942,7 @@ body {
 }
 
 .team-channel-list__message.loading {
+  font-family: "Lato";
   height: 115px;
 }
 
@@ -965,11 +958,11 @@ body {
 }
 
 .team-channel-list__header__title {
-  font-family: Helvetica Neue, sans-serif;
-  font-size: 13px;
-  line-height: 16px;
-  height: 16px;
-  color: rgba(255, 255, 255, 0.66);
+  font-family: "Lato";
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #00dd00;
   margin-bottom: 10px;
 }
 

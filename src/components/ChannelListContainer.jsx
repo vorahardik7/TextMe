@@ -7,6 +7,7 @@ import { ChannelSearch } from './ChannelSearch';
 import { TeamChannelList } from './TeamChannelList';
 import { TeamChannelPreview } from './TeamChannelPreview';
 
+const cookies = new Cookies();
 
 const CompanyHeader = () => (
     <div className="channel-list__header">
@@ -15,10 +16,21 @@ const CompanyHeader = () => (
 )
 
 
-export const ChannelListContainer = () => {
+export const ChannelListContainer = ({ isCreating, setIsCreating, setCreateType, setIsEditing }) => {
+
+    const logout = () => {
+        cookies.remove('token');
+        cookies.remove('userId');
+        cookies.remove('username');
+        cookies.remove('fullName');
+        cookies.remove('hashedPass,ord');
+        cookies.remove('phoneNumb,r');
+        cookies.remove('avatarURL');
+        window.location.reload();
+    }
     return (
         <>
-            <SideBar />
+            <SideBar logout={logout} />
             <div className='channel-list__list__wrapper'>
                 <CompanyHeader />
                 <ChannelSearch />
@@ -28,15 +40,20 @@ export const ChannelListContainer = () => {
                     List={(listProps) => (
                         <TeamChannelList
                             {...listProps}
+                            isCreating={isCreating}
+                            setIsCreating={setIsCreating}
+                            setCreateType={setCreateType}
+                            setIsEditing={setIsEditing}
+                            type="team"
+
+                        />
+                    )}
+                    Preview={(previewProps) => (
+                        <TeamChannelPreview
+                            {...previewProps}
                             type="team"
                         />
                     )}
-                    Preview={previewProp => {
-                        <TeamChannelPreview
-                            {...previewProp}
-                            type="team"
-                        />
-                    }}
                 />
                 <ChannelList
                     filters={{}}
@@ -44,15 +61,19 @@ export const ChannelListContainer = () => {
                     List={(listProps) => (
                         <TeamChannelList
                             {...listProps}
+                            isCreating={isCreating}
+                            setIsCreating={setIsCreating}
+                            setCreateType={setCreateType}
+                            setIsEditing={setIsEditing}
                             type="messaging"
                         />
                     )}
-                    Preview={previewProp => {
+                    Preview={(previewProps) => (
                         <TeamChannelPreview
-                            {...previewProp}
+                            {...previewProps}
                             type="messaging"
                         />
-                    }}
+                    )}
                 />
             </div>
         </>

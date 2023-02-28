@@ -13,7 +13,7 @@ export const TeamChannelPreview = ({ channel, type }) => {
 
     const DirectPreview = () => {
         const members = Object.values(channel.state.members).filter(({ user }) =>
-            user.id !== client.userId
+            user.id !== client.userID
         )
 
         return (
@@ -29,10 +29,11 @@ export const TeamChannelPreview = ({ channel, type }) => {
     }
 
     return (
-        <div
-            className={
-                channel?.id === activeChannel?.id ? 'channel-preview__wrapper_selected' : 'channel-preview__wrapper'}
-            onClick={() => console.log(channel)}
+        <div className={
+            channel?.id === activeChannel?.id
+                ? 'channel-preview__wrapper__selected'
+                : 'channel-preview__wrapper'
+        }
         >
             {type === 'team' ? <ChannelPreview /> : <DirectPreview />}
         </div>
