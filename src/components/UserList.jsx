@@ -49,7 +49,6 @@ export const UserList = ({ setSelectedUsers }) => {
 
     useEffect(() => {
         const getUsers = async () => {
-            console.log('enter')
             if (loading) return;
 
             setLoading(true);
@@ -60,8 +59,6 @@ export const UserList = ({ setSelectedUsers }) => {
                     { id: 1 },
                     { limit: 8 }
                 );
-                console.log(response)
-
                 if (response.users.length) {
                     setUsers(response.users);
                 } else {
@@ -75,6 +72,7 @@ export const UserList = ({ setSelectedUsers }) => {
 
         if (client) getUsers()
     }, []);
+
     if (error) {
         return (
             <ListContainer>
